@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Toaster</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Poor+Story|Sunflower:300&amp;display=swap" rel="stylesheet">
+	<style type="text/css">
+		body{size: 100%; text-align: center; font-family:'Noto Sans KR', sans-serif;}
+		#ce{width: 70%; height: 70% auto;}
+		#c{background-image:url('toto.gif');width:200px; height:200px;transition: all 1s; position: absolute; left: 500px; top: 200px;}
+	</style>
+</head>
+<body id="mybody">
+			<h1>토스트기 손잡이를 클릭하여 토스트를 꺼내주세요</h1>
+		<img src="crop.png" id="ce" style="background-color: white;">
+		<div id="c"></div>
+
+		<audio id="fsound">
+	  	<source src="so.wav" type="audio/wav">
+	  	</audio>
+	  	<audio id="nsound">
+	  	<source src="happy.mp3" type="audio/mpeg">
+		</audio>
+
+		<script type="text/javascript">
+
+			var on = false;
+			ce.onclick = function(){
+				c.style.opacity = "1";
+				c.style.left = "100px"
+
+				if(on){
+					ce.backgroundSize = "100% auto";
+					on = false;
+					ce.src = "crop1.png";
+					backgroundMusic.pause();
+				}else{
+					ce.style.backgroundSize = "100% auto";
+					ce.src = "toaster1.gif";
+					on = true;
+					fsound.play();
+					nsound.play();
+					document.body.style.background = "white";
+					backgroundMusic.play();
+				}
+			}
+		</script>
+</body>
+</html>
